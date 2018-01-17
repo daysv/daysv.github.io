@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.2.6 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            常见 Angular Directives 秘方 二 | 
+        
+        Sang&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/1.png">
+    <link rel="icon" sizes="192x192" href="/img/1.png">
+    <link rel="apple-touch-icon" href="/img/1.png">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Sang">
+    <meta name="description" content="software is hard">
+    <meta name="keywords" content="blog fontend node node-webkit days_v sang">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Sang&#39;s Blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://blog.daysv.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="常见 Angular Directives 秘方 二 | Sang&#39;s Blog">
+    <meta property="og:description" content="software is hard">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+    body, html {
+        font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    }
+
+    a {
+        color: #00838F;
+    }
+
+    .mdl-card__media,
+    #search-label,
+    #search-form-label:after,
+    #scheme-Paradox .hot_tags-count,
+    #scheme-Paradox .sidebar_archives-count,
+    #scheme-Paradox .sidebar-colored .sidebar-header,
+    #scheme-Paradox .sidebar-colored .sidebar-badge{
+        background-color: #0097A7 !important;
+    }
+
+    /* Sidebar User Drop Down Menu Text Color */
+    #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+    #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+        color: #0097A7 !important;
+    }
+
+    #post_entry-right-info,
+    .sidebar-colored .sidebar-nav li:hover > a,
+    .sidebar-colored .sidebar-nav li:hover > a i,
+    .sidebar-colored .sidebar-nav li > a:hover,
+    .sidebar-colored .sidebar-nav li > a:hover i,
+    .sidebar-colored .sidebar-nav li > a:focus i,
+    .sidebar-colored .sidebar-nav > .open > a,
+    .sidebar-colored .sidebar-nav > .open > a:hover,
+    .sidebar-colored .sidebar-nav > .open > a:focus,
+    #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+        color: #0097A7 !important;
+    }
+
+    .toTop {
+        background: #757575 !important;
+    }
+
+    .material-layout .material-post>.material-nav,
+    .material-layout .material-index>.material-nav,
+    .material-nav a {
+        color: #757575;
+    }
+
+    #scheme-Paradox .MD-burger-layer {
+        background-color: #757575;
+    }
+
+    #scheme-Paradox #post-toc-trigger-btn {
+        color: #757575;
+    }
+
+    .post-toc a:hover {
+        color: #00838F;
+        text-decoration: underline;
+    }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+        body{
+            background-color: #F5F5F5;
+        }
+
+        /* blog_info bottom background */
+        #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+            background-color: #fff;
+        }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+        .fade {
+            transition: all 800ms linear;
+            -webkit-transform: translate3d(0,0,0);
+            -moz-transform: translate3d(0,0,0);
+            -ms-transform: translate3d(0,0,0);
+            -o-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+            opacity: 1;
+        }
+
+        .fade.out{
+            opacity: 0;
+        }
+    </style>
+
+
+    <script src="/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/css/highlight/monokai-sublime.css">
+
+    <!-- UC Browser Compatible-->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write('<link rel="stylesheet" href="/css/uc.css">');
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    <!-- Custom Head -->
+    
+        
+             <script> var _hmt = _hmt || []; (function() { var hm = document.createElement('script'); hm.src = 'https://hm.baidu.com/hm.js?f85c586b8d07082a99af531b5f4b1454'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s); })(); </script> 
+        
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#从HTML属性获取参数"><span class="post-toc-number">1.</span> <span class="post-toc-text">从HTML属性获取参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#问题"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方案"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">方案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#详情"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">详情</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重复渲染指令DOM子节点"><span class="post-toc-number">2.</span> <span class="post-toc-text">重复渲染指令DOM子节点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#问题-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方案-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">方案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#详情-1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">详情</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#指令间的通讯"><span class="post-toc-number">3.</span> <span class="post-toc-text">指令间的通讯</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#问题-2"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方案-2"><span class="post-toc-number">4.</span> <span class="post-toc-text">方案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#详情-2"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">详情</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试指令"><span class="post-toc-number">5.</span> <span class="post-toc-text">测试指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#问题-3"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方案-3"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">方案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#详情-3"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">详情</span></a></li></ol></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 22 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.jpg' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                常见 Angular Directives 秘方 二
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/user.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Sang</strong>
+        <span>11月 09, 2015</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/angular-js/">angular.js</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=常见 Angular Directives 秘方 二&url=http://blog.daysv.com//2015/11/09/常见 Angular Directives 秘方 二/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=常见 Angular Directives 秘方 二&url=http://blog.daysv.com//2015/11/09/常见 Angular Directives 秘方 二/index.html&via=Sang" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.daysv.com//2015/11/09/常见 Angular Directives 秘方 二/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://blog.daysv.com//2015/11/09/常见 Angular Directives 秘方 二/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>指令是Angular强大的概念之一,它能使你创造新的HTML元素到应用中.指令能使你构建封装着复杂DOM结构,样式甚至可复用的组件.</p>
+<a id="more"></a>
+<h2 id="从HTML属性获取参数"><a href="#从HTML属性获取参数" class="headerlink" title="从HTML属性获取参数"></a>从HTML属性获取参数</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>你希望通过参数配置控制渲染</p>
+<h3 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h3><p>使用基于属性的指令并从中获取参数,你能从<code>link</code>方法的参数中获取属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"MyApp"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">my-widget</span>=<span class="string">"Hello World"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = angular.module(<span class="string">"MyApp"</span>, []);</span><br><span class="line"></span><br><span class="line">app.directive(<span class="string">"myWidget"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> linkFunction = <span class="function"><span class="keyword">function</span>(<span class="params">scope, element, attributes</span>) </span>&#123;</span><br><span class="line">    scope.text = attributes[<span class="string">"myWidget"</span>];</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    restrict: <span class="string">"A"</span>,</span><br><span class="line">    template: <span class="string">"&lt;p&gt;&lt;/p&gt;"</span>,</span><br><span class="line">    link: linkFunction</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这使文字通过HTML参数获取并展示</p>
+<h3 id="详情"><a href="#详情" class="headerlink" title="详情"></a>详情</h3><p>link函数有权访问元素及其属性,因此简单的设置范围用以传递作为属性值的文本,并使用在模板中<br>作用范围是较为重要的部分, 我们可在父范围内定义可改变的文本模型并使用在其他的应用中.<br>为了隔离上下文,并只使用在当前指令中,我们需要返回一个额外的scope属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line">  restrict: <span class="string">"A"</span>,</span><br><span class="line">  template: <span class="string">"&lt;p&gt;&lt;/p&gt;"</span>,</span><br><span class="line">  link: linkFunction,</span><br><span class="line">  scope: &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这就是Angular中的隔离域,它不是典型的从父域中继承而来.当我们创建一个可复用组件时隔离域非常有用.<br>现在看一看另外一种传递参数的方式.以下示例将定义一个HTML元素 <code>my-widget2</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-widget2</span> <span class="attr">text</span>=<span class="string">"Hello World"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-widget2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">app.directive(<span class="string">"myWidget2"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    restrict: <span class="string">"E"</span>,</span><br><span class="line">    template: <span class="string">"&lt;p&gt;&lt;/p&gt;"</span>,</span><br><span class="line">    scope: &#123;</span><br><span class="line">      text: <span class="string">"@text"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>@text</code> 绑定了标签属性中的text模型并定义为当前指令的域.注意任何改变父域的<code>text</code>都会改变指令域的<code>text</code>.<br>如果你想在父域与子域中进行双向绑定,你需要使用<code>=</code>等于号.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scope: &#123;</span><br><span class="line">  text: <span class="string">"=text"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>改变本地域也会改变父域<br>另一种方式可以使用<code>&amp;</code>符号让指令将表达式作为函数进行调用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-widget-expr</span> <span class="attr">fn</span>=<span class="string">"count = count + 1"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-widget-expr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">app.directive(<span class="string">"myWidgetExpr"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> linkFunction = <span class="function"><span class="keyword">function</span>(<span class="params">scope, element, attributes</span>) </span>&#123;</span><br><span class="line">    scope.text = scope.fn(&#123; <span class="attr">count</span>: <span class="number">5</span> &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    restrict: <span class="string">"E"</span>,</span><br><span class="line">    template: <span class="string">"&lt;p&gt;&lt;/p&gt;"</span>,</span><br><span class="line">    link: linkFunction,</span><br><span class="line">    scope: &#123;</span><br><span class="line">      fn: <span class="string">"&amp;fn"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>可通过属性中的fn把表达式传递给指令,我们在<code>linkFunction</code>中能传递参数并调用函数</p>
+<h2 id="重复渲染指令DOM子节点"><a href="#重复渲染指令DOM子节点" class="headerlink" title="重复渲染指令DOM子节点"></a>重复渲染指令DOM子节点</h2><h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><p>你希望使用指令的子节点作为标识内容重复渲染一个HTML片段</p>
+<h3 id="方案-1"><a href="#方案-1" class="headerlink" title="方案"></a>方案</h3><p>在指令中实现一个复杂的编译函数<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repeat-ntimes</span> <span class="attr">repeat</span>=<span class="string">"10"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Header 1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>This is the paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repeat-n-times</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = angular.module(<span class="string">"MyApp"</span>, []);</span><br><span class="line"></span><br><span class="line">app.directive(<span class="string">"repeatNtimes"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    restrict: <span class="string">"E"</span>,</span><br><span class="line">    compile: <span class="function"><span class="keyword">function</span>(<span class="params">tElement, attrs</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> content = tElement.children();</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">1</span>; i&lt;attrs.repeat; i++) &#123;</span><br><span class="line">        tElement.append(content.clone());</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这将连续十次渲染<code>h1</code>和<code>p</code>标签的内容</p>
+<h3 id="详情-1"><a href="#详情-1" class="headerlink" title="详情"></a>详情</h3><p>指令会依据<code>repeat</code>属性重复子节点.工作方式类似<code>ng-repeat</code>,依据Angulare的element方法去循环增加子节点<br>注意,编译方法只可以访问模板元件tElement和模板的属性,其他的范围无法访问.因此无法使用<code>$watch</code>去增添行为.相比之下<code>link</code>函数则可以访问DOM实例(编译阶段后),并获得域的范围并增加行为.<br>只为DOM模板控制使用编译,而<code>link</code>函数可以随时增加行为<br>注意,你能同时使用<code>compile</code>和<code>link</code>函数,在以下实例中,<code>compile</code>函数会返回一个<code>link</code>函数,能为点击h1做出反应</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">compile: <span class="function"><span class="keyword">function</span>(<span class="params">tElement, attrs</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> content = tElement.children();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">1</span>; i&lt;attrs.repeat; i++) &#123;</span><br><span class="line">    tElement.append(content.clone());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">scope, element, attrs</span>) </span>&#123;</span><br><span class="line">    element.on(<span class="string">"click"</span>, <span class="string">"h1"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      $(<span class="keyword">this</span>).css(&#123; <span class="string">"background-color"</span>: <span class="string">"red"</span> &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>点击h1会改变背景色为红色</p>
+<h2 id="指令间的通讯"><a href="#指令间的通讯" class="headerlink" title="指令间的通讯"></a>指令间的通讯</h2><h3 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h3><p>你希望通过一个定义明确的接口来让指令间通讯</p>
+<h2 id="方案-2"><a href="#方案-2" class="headerlink" title="方案"></a>方案</h2><p>构建一个有controller函数的<code>basket</code>指令和需要这个controller的两个指令<code>orange</code>和<code>apple</code>.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"MyApp"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">basket</span> <span class="attr">apple</span> <span class="attr">orange</span>&gt;</span>Roll over me and check the console!<span class="tag">&lt;/<span class="name">basket</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>basket</code>指管理一个数组可增加苹果和橙子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = angular.module(<span class="string">"MyApp"</span>, []);</span><br><span class="line"></span><br><span class="line">app.directive(<span class="string">"basket"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    restrict: <span class="string">"E"</span>,</span><br><span class="line">    controller: <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $element, $attrs</span>) </span>&#123;</span><br><span class="line">      $scope.content = [];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">this</span>.addApple = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        $scope.content.push(<span class="string">"apple"</span>);</span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">this</span>.addOrange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        $scope.content.push(<span class="string">"orange"</span>);</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    link: <span class="function"><span class="keyword">function</span>(<span class="params">scope, element</span>) </span>&#123;</span><br><span class="line">      element.bind(<span class="string">"mouseenter"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(scope.content);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>最终<code>apple</code>和<code>orange</code>指令可以使用<code>basket</code>控制器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">app.directive(<span class="string">"apple"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="built_in">require</span>: <span class="string">"basket"</span>,</span><br><span class="line">    link: <span class="function"><span class="keyword">function</span>(<span class="params">scope, element, attrs, basketCtrl</span>) </span>&#123;</span><br><span class="line">      basketCtrl.addApple();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.directive(<span class="string">"orange"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="built_in">require</span>: <span class="string">"basket"</span>,</span><br><span class="line">    link: <span class="function"><span class="keyword">function</span>(<span class="params">scope, element, attrs, basketCtrl</span>) </span>&#123;</span><br><span class="line">      basketCtrl.addOrange();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>如果鼠标移动到文本上,会输出<code>basket</code>的内容</p>
+<h3 id="详情-2"><a href="#详情-2" class="headerlink" title="详情"></a>详情</h3><p>鉴于<code>apple</code>和<code>orange</code>作为<code>basket</code>指令的属性,演示了指令如何使用controller函数,他们都定义需要依赖于<code>basket</code>控制器,所以<code>link</code>函数得到<code>basketCtrl</code>的注入,可为可复用组件增加额外指令</p>
+<h2 id="测试指令"><a href="#测试指令" class="headerlink" title="测试指令"></a>测试指令</h2><h3 id="问题-3"><a href="#问题-3" class="headerlink" title="问题"></a>问题</h3><p>希望以单元测试方式测试编写的指令,虾米是一个简单的tab组件例子.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tabs</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">pane</span> <span class="attr">title</span>=<span class="string">"First Tab"</span>&gt;</span>First pane.<span class="tag">&lt;/<span class="name">pane</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">pane</span> <span class="attr">title</span>=<span class="string">"Second Tab"</span>&gt;</span>Second pane.<span class="tag">&lt;/<span class="name">pane</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tabs</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">app.directive(<span class="string">"tabs"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    restrict: <span class="string">"E"</span>,</span><br><span class="line">    transclude: <span class="literal">true</span>,</span><br><span class="line">    scope: &#123;&#125;,</span><br><span class="line">    controller: <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $element</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> panes = $scope.panes = [];</span><br><span class="line"></span><br><span class="line">      $scope.select = <span class="function"><span class="keyword">function</span>(<span class="params">pane</span>) </span>&#123;</span><br><span class="line">        angular.forEach(panes, <span class="function"><span class="keyword">function</span>(<span class="params">pane</span>) </span>&#123;</span><br><span class="line">          pane.selected = <span class="literal">false</span>;</span><br><span class="line">        &#125;);</span><br><span class="line">        pane.selected = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"selected pane: "</span>, pane.title);</span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">this</span>.addPane = <span class="function"><span class="keyword">function</span>(<span class="params">pane</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!panes.length) $scope.select(pane);</span><br><span class="line">        panes.push(pane);</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    template:</span><br><span class="line">      <span class="string">'&lt;div class="tabbable"&gt;'</span> +</span><br><span class="line">        <span class="string">'&lt;ul class="nav nav-tabs"&gt;'</span> +</span><br><span class="line">          <span class="string">'&lt;li ng-repeat="pane in panes"'</span> +</span><br><span class="line">              <span class="string">'ng-class="&#123;active:pane.selected&#125;"&gt;'</span>+</span><br><span class="line">            <span class="string">'&lt;a href="" ng-click="select(pane)"&gt;&lt;/a&gt;'</span> +</span><br><span class="line">          <span class="string">'&lt;/li&gt;'</span> +</span><br><span class="line">        <span class="string">'&lt;/ul&gt;'</span> +</span><br><span class="line">        <span class="string">'&lt;div class="tab-content" ng-transclude&gt;&lt;/div&gt;'</span> +</span><br><span class="line">      <span class="string">'&lt;/div&gt;'</span>,</span><br><span class="line">    replace: <span class="literal">true</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">app.directive(<span class="string">"pane"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="built_in">require</span>: <span class="string">"^tabs"</span>,</span><br><span class="line">    restrict: <span class="string">"E"</span>,</span><br><span class="line">    transclude: <span class="literal">true</span>,</span><br><span class="line">    scope: &#123;</span><br><span class="line">      title: <span class="string">"@"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    link: <span class="function"><span class="keyword">function</span>(<span class="params">scope, element, attrs, tabsCtrl</span>) </span>&#123;</span><br><span class="line">      tabsCtrl.addPane(scope);</span><br><span class="line">    &#125;,</span><br><span class="line">    template:</span><br><span class="line">      <span class="string">'&lt;div class="tab-pane" ng-class="&#123;active: selected&#125;"'</span> +</span><br><span class="line">        <span class="string">'ng-transclude&gt;&lt;/div&gt;'</span>,</span><br><span class="line">    replace: <span class="literal">true</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="方案-3"><a href="#方案-3" class="headerlink" title="方案"></a>方案</h3><p>使用angular-seed与<code>jasmine</code>和<code>jasmine-jquery</code>写作进行单元测试</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">'MyApp Tabs'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> elm, scope;</span><br><span class="line"></span><br><span class="line">  beforeEach(<span class="built_in">module</span>(<span class="string">'MyApp'</span>));</span><br><span class="line"></span><br><span class="line">  beforeEach(inject(<span class="function"><span class="keyword">function</span>(<span class="params">$rootScope, $compile</span>) </span>&#123;</span><br><span class="line">    elm = angular.element(</span><br><span class="line">      <span class="string">'&lt;div&gt;'</span> +</span><br><span class="line">        <span class="string">'&lt;tabs&gt;'</span> +</span><br><span class="line">          <span class="string">'&lt;pane title="First Tab"&gt;'</span> +</span><br><span class="line">            <span class="string">'First content is '</span> +</span><br><span class="line">          <span class="string">'&lt;/pane&gt;'</span> +</span><br><span class="line">          <span class="string">'&lt;pane title="Second Tab"&gt;'</span> +</span><br><span class="line">            <span class="string">'Second content is '</span> +</span><br><span class="line">          <span class="string">'&lt;/pane&gt;'</span> +</span><br><span class="line">        <span class="string">'&lt;/tabs&gt;'</span> +</span><br><span class="line">      <span class="string">'&lt;/div&gt;'</span>);</span><br><span class="line"></span><br><span class="line">    scope = $rootScope;</span><br><span class="line">    $compile(elm)(scope);</span><br><span class="line">    scope.$digest();</span><br><span class="line">  &#125;));</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'should create clickable titles'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(elm.find(<span class="string">'ul.nav-tabs'</span>));</span><br><span class="line">    <span class="keyword">var</span> titles = elm.find(<span class="string">'ul.nav-tabs li a'</span>);</span><br><span class="line"></span><br><span class="line">    expect(titles.length).toBe(<span class="number">2</span>);</span><br><span class="line">    expect(titles.eq(<span class="number">0</span>).text()).toBe(<span class="string">'First Tab'</span>);</span><br><span class="line">    expect(titles.eq(<span class="number">1</span>).text()).toBe(<span class="string">'Second Tab'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'should set active class on title'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> titles = elm.find(<span class="string">'ul.nav-tabs li'</span>);</span><br><span class="line"></span><br><span class="line">    expect(titles.eq(<span class="number">0</span>)).toHaveClass(<span class="string">'active'</span>);</span><br><span class="line">    expect(titles.eq(<span class="number">1</span>)).not.toHaveClass(<span class="string">'active'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'should change active pane when title clicked'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> titles = elm.find(<span class="string">'ul.nav-tabs li'</span>);</span><br><span class="line">    <span class="keyword">var</span> contents = elm.find(<span class="string">'div.tab-content div.tab-pane'</span>);</span><br><span class="line"></span><br><span class="line">    titles.eq(<span class="number">1</span>).find(<span class="string">'a'</span>).click();</span><br><span class="line"></span><br><span class="line">    expect(titles.eq(<span class="number">0</span>)).not.toHaveClass(<span class="string">'active'</span>);</span><br><span class="line">    expect(titles.eq(<span class="number">1</span>)).toHaveClass(<span class="string">'active'</span>);</span><br><span class="line"></span><br><span class="line">    expect(contents.eq(<span class="number">0</span>)).not.toHaveClass(<span class="string">'active'</span>);</span><br><span class="line">    expect(contents.eq(<span class="number">1</span>)).toHaveClass(<span class="string">'active'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="详情-3"><a href="#详情-3" class="headerlink" title="详情"></a>详情</h3><p>示例中广泛使用了 <code>jasmine</code>结合<code>jasmine-jquery</code>提供的<code>toHaveClass</code>和<code>click</code>事件<br>在<code>beforeEach</code>前使用<code>$compile</code>和<code>$digest</code>准备模板,并测试最终的Angular元素<br>示例取自<a href="https://github.com/vojtajina/ng-directive-testing/tree/start" target="_blank" rel="noopener">Vojta Jina’ Github example</a></p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+    <!-- 使用 DISQUS -->
+    <div id="disqus-comment">
+        <div id="disqus_thread"></div>
+<script>
+    $('html').ready(function() {
+        setTimeout(function() {
+            var disqus_config = function () {
+                this.page.url = 'http://blog.daysv.com/2015/11/09/常见 Angular Directives 秘方 二/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//daysv.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        },1500);
+    });
+</script>
+
+    </div>
+    <style>
+        #disqus-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2015/11/16/canvas绘制QQ登录LOGO动画/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2015/10/29/常见 Angular Directives 秘方 一/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/user.png" alt="Sang's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        days_v@qq.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:days_v@qq.com" target="_blank" title="Email Me">
+                        <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    <li id="sidebar-first-li">
+        <a href="/" target="_self">
+            <i class="material-icons sidebar-material-icons">home</i>
+            主页
+        </a>
+    </li>
+
+    <!-- I'm Feeling Lucky -->
+    <!--
+    <li class="dropdown">
+        <a href="" target="_self">
+            <i class="material-icons sidebar-material-icons">explore</i>
+             sidebar.imlucky
+        </a>
+    </li>
+    -->
+
+    <!-- Archives  -->
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            <i class="material-icons sidebar-material-icons">inbox</i>
+             归档
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+            <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/11/">十一月 2015<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/10/">十月 2015<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/08/">八月 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/05/">五月 2015<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/01/">一月 2015<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2014/12/">十二月 2014<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2014/08/">八月 2014<span class="sidebar_archives-count">7</span></a>
+        </ul>
+    </li>
+
+    <!-- Categories  -->
+    
+
+    <!-- Divider -->
+    <li class="divider"></li>
+
+
+    <!-- Pages  -->
+  	
+        <li>
+            <a href="function link() { [native code] }" title="Github">
+                
+                Github
+            </a>
+        </li>
+  	
+
+    <!-- Article Numebr  -->
+    <li>
+        <a href="/archives">
+            文章总数
+            <span class="sidebar-badge">29</span>
+        </a>
+    </li>
+</ul>
+
+
+        <!-- Sidebar Divider -->
+        <div class="sidebar-divider"></div>
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Theme Material -->
+<a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        主题 - Material
+        <span class="sidebar-badge badge-circle">i</span>
+    </div>
+</a>
+
+<!-- Help & Support -->
+<!--
+<a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+    sidebar.help
+    <span class="mdl-button__ripple-container">
+      <span class="mdl-ripple"></span>
+    </span>
+  </div>
+</a>
+-->
+
+<!-- Feedback -->
+<!--
+<a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+         sidebar.feedback
+                    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+</a>
+-->
+
+<!-- Abount Theme -->
+<!--
+<a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+         sidebar.about_theme
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+</a>-->
+
+    </div>
+
+    <!-- Sidebar Sponsor -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="https://www.weibo.com/315336507" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.png);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/daysv" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;Sang's Blog
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/highlight.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+
+    $('#nprogress .bar').css({
+        'background': '#FF4081'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #FF4081, 0 0 15px #FF4081'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#FF4081',
+        'border-left-color': '#FF4081'
+    });
+
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    <script src="/js/smoothscroll.js"></script>
+
+
+
+
+
+
+
+
+
+    <!-- 使用 DISQUS js 代码 -->
+    <script id="dsq-count-scr" src="//daysv.disqus.com/count.js" async></script>
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>

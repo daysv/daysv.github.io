@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.2.6 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            数据分析平台项目心得 | 
+        
+        Sang&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/1.png">
+    <link rel="icon" sizes="192x192" href="/img/1.png">
+    <link rel="apple-touch-icon" href="/img/1.png">
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Sang">
+    <meta name="description" content="software is hard">
+    <meta name="keywords" content="blog fontend node node-webkit days_v sang">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Sang&#39;s Blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://blog.daysv.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="数据分析平台项目心得 | Sang&#39;s Blog">
+    <meta property="og:description" content="software is hard">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="/css/material.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+    body, html {
+        font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    }
+
+    a {
+        color: #00838F;
+    }
+
+    .mdl-card__media,
+    #search-label,
+    #search-form-label:after,
+    #scheme-Paradox .hot_tags-count,
+    #scheme-Paradox .sidebar_archives-count,
+    #scheme-Paradox .sidebar-colored .sidebar-header,
+    #scheme-Paradox .sidebar-colored .sidebar-badge{
+        background-color: #0097A7 !important;
+    }
+
+    /* Sidebar User Drop Down Menu Text Color */
+    #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+    #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+        color: #0097A7 !important;
+    }
+
+    #post_entry-right-info,
+    .sidebar-colored .sidebar-nav li:hover > a,
+    .sidebar-colored .sidebar-nav li:hover > a i,
+    .sidebar-colored .sidebar-nav li > a:hover,
+    .sidebar-colored .sidebar-nav li > a:hover i,
+    .sidebar-colored .sidebar-nav li > a:focus i,
+    .sidebar-colored .sidebar-nav > .open > a,
+    .sidebar-colored .sidebar-nav > .open > a:hover,
+    .sidebar-colored .sidebar-nav > .open > a:focus,
+    #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+        color: #0097A7 !important;
+    }
+
+    .toTop {
+        background: #757575 !important;
+    }
+
+    .material-layout .material-post>.material-nav,
+    .material-layout .material-index>.material-nav,
+    .material-nav a {
+        color: #757575;
+    }
+
+    #scheme-Paradox .MD-burger-layer {
+        background-color: #757575;
+    }
+
+    #scheme-Paradox #post-toc-trigger-btn {
+        color: #757575;
+    }
+
+    .post-toc a:hover {
+        color: #00838F;
+        text-decoration: underline;
+    }
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+        body{
+            background-color: #F5F5F5;
+        }
+
+        /* blog_info bottom background */
+        #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+            background-color: #fff;
+        }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+        .fade {
+            transition: all 800ms linear;
+            -webkit-transform: translate3d(0,0,0);
+            -moz-transform: translate3d(0,0,0);
+            -ms-transform: translate3d(0,0,0);
+            -o-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+            opacity: 1;
+        }
+
+        .fade.out{
+            opacity: 0;
+        }
+    </style>
+
+
+    <script src="/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/css/highlight/monokai-sublime.css">
+
+    <!-- UC Browser Compatible-->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write('<link rel="stylesheet" href="/css/uc.css">');
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    <!-- Custom Head -->
+    
+        
+             <script> var _hmt = _hmt || []; (function() { var hm = document.createElement('script'); hm.src = 'https://hm.baidu.com/hm.js?f85c586b8d07082a99af531b5f4b1454'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s); })(); </script> 
+        
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#编写目的"><span class="post-toc-number">1.</span> <span class="post-toc-text">编写目的</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开发环境"><span class="post-toc-number">2.</span> <span class="post-toc-text">开发环境</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目启动"><span class="post-toc-number">3.</span> <span class="post-toc-text">项目启动</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目结构"><span class="post-toc-number">4.</span> <span class="post-toc-text">项目结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主要结构"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">主要结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务端"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">服务端</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启动命令-Grunt-server"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">启动命令 Grunt server</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务端入口"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">服务端入口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务端结构"><span class="post-toc-number">4.2.3.</span> <span class="post-toc-text">服务端结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#server-main-js-主文件"><span class="post-toc-number">4.2.4.</span> <span class="post-toc-text">server/main.js 主文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#server-config"><span class="post-toc-number">4.2.5.</span> <span class="post-toc-text">server/config</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#server-logs-日志文件夹"><span class="post-toc-number">4.2.6.</span> <span class="post-toc-text">server/logs 日志文件夹</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#server-util-工具文件夹"><span class="post-toc-number">4.2.7.</span> <span class="post-toc-text">server/util 工具文件夹</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#server-controller-路由与控制器"><span class="post-toc-number">4.2.8.</span> <span class="post-toc-text">server/controller 路由与控制器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#客户端"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">客户端</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户端结构"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">客户端结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#app-index-html"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">app/index.html</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#app-script-main-js"><span class="post-toc-number">4.3.3.</span> <span class="post-toc-text">app/script/main.js</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#app-script-app-js"><span class="post-toc-number">4.3.4.</span> <span class="post-toc-text">app/script/app.js</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#app-script-registers"><span class="post-toc-number">4.3.5.</span> <span class="post-toc-text">app/script/registers</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#app-script-routers"><span class="post-toc-number">4.3.6.</span> <span class="post-toc-text">app/script/routers</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#app-common-appController-js"><span class="post-toc-number">4.3.7.</span> <span class="post-toc-text">app/common/appController.js</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#app-common-directives-js"><span class="post-toc-number">4.3.8.</span> <span class="post-toc-text">app/common/directives.js</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#app-common-utilsService-js"><span class="post-toc-number">4.3.9.</span> <span class="post-toc-text">app/common/utilsService.js</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#协同工作"><span class="post-toc-number">5.</span> <span class="post-toc-text">协同工作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编码规范"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">编码规范</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块编写"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">模块编写</span></a></li></ol></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script>
+    var randomNum = Math.floor(Math.random() * 22 + 1);
+
+    $('.post_thumbnail-random').css('background-image', 'url(' + '/img/random/material-' + randomNum + '.jpg' + ')');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                数据分析平台项目心得
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/user.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Sang</strong>
+        <span>4月 02, 2015</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/angular-js/">angular.js</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/io-js/">io.js</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/node-js/">node.js</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=数据分析平台项目心得&url=http://blog.daysv.com//2015/04/02/数据分析平台心得/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=数据分析平台项目心得&url=http://blog.daysv.com//2015/04/02/数据分析平台心得/index.html&via=Sang" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.daysv.com//2015/04/02/数据分析平台心得/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://blog.daysv.com//2015/04/02/数据分析平台心得/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="编写目的"><a href="#编写目的" class="headerlink" title="编写目的"></a>编写目的</h1><p>通过对数据分析平台项目学习,深入理解基于<code>Angular.js</code> <code>Node.js</code> 等新兴前端技术,使得在今后工作中能够熟练掌握并且运用此类技术.</p>
+<p>svn下载地址<br><a href="http://test10.svn.7road-inc.com/svn/research/SupportSystem/7thDataPlatform" target="_blank" rel="noopener">http://test10.svn.7road-inc.com/svn/research/SupportSystem/7thDataPlatform</a><br>Github地址<br><a href="https://github.com/zhangxiaolong88/angular-require-grunt-express-seed.git" target="_blank" rel="noopener">https://github.com/zhangxiaolong88/angular-require-grunt-express-seed.git</a></p>
+<a id="more"></a>
+<h1 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h1><p>服务端所使用的包均在<code>package.json</code>中注册,前端所使用的均在<code>bower.json</code>中注册<br>其中主要运用的技术如下:</p>
+<ul>
+<li><p>Node.js</p>
+<blockquote>
+<p>Node.js是一个基于Chrome JavaScript运行时建立的平台， 用于方便地搭建响应速度快、易于扩展的网络应用。Node.js 使用事件驱动， 非阻塞I/O 模型而得以轻量和高效，非常适合在分布式设备上运行的数据密集型的实时应用。Node.js中集成了包管理器<code>npm</code></p>
+</blockquote>
+</li>
+<li><p>Express.js</p>
+<blockquote>
+<p>express 是一个基于<code>Node.js</code>的轻量级WEB服务器框架,本项目使用版本为<code>3.4.0</code>. 注意!在此版本中express已集成诸如<code>session</code> <code>static</code> <code>logger</code> <code>cookieParser</code> 等功能,而在<code>4.0</code>版本中,大部分功能已剥离并需以中间件的方式手动安装.</p>
+</blockquote>
+</li>
+<li><p>Yeoman</p>
+</li>
+</ul>
+<ol>
+<li><p>Yo</p>
+<blockquote>
+<p>Yo 是一个 Web 应用的架构（scaffolding）工具。它提供了非常多的模板，用来生成不同类型的 Web 应用。这些模板称为生成器（generator）。社区也贡献了非常多的生成器，适应于各种不同的场景。通过 Yo 生成的应用使用 Grunt 来进行构建，使用 Bower 进行依赖管理。</p>
+</blockquote>
+</li>
+<li><p>Grunt.js</p>
+<blockquote>
+<p>自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。</p>
+</blockquote>
+</li>
+<li><p>Bower.js</p>
+<blockquote>
+<p>Bower 是 twitter 推出的一款包管理工具，基于nodejs的模块化思想，把功能分散到各个模块中，让模块和模块之间存在联系，通过 Bower 来管理模块间的这种联系。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>Angular.js</p>
+<blockquote>
+<p>AngularJS是Google开发的纯客户端JavaScript技术的WEB框架,用于扩展、增强HTML功能,它专为构建强大的WEB应用而设计。最为核心的是：MVVM、模块化、自动化双向数据绑定、语义化标签、依赖注入，等等。</p>
+</blockquote>
+</li>
+<li><p>Require.js</p>
+<blockquote>
+<p>RequireJS的目标是鼓励代码的模块化，它使用了不同于传统<code>&lt;script&gt;</code>标签的脚本加载步骤。可以用它来加速、优化代码，但其主要目的还是为了代码的模块化。它鼓励在使用脚本时以module ID替代URL地址。</p>
+</blockquote>
+</li>
+<li><p>jQuery</p>
+<blockquote>
+<p>轻量级的js库,作为众多插件的基础类库</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="项目启动"><a href="#项目启动" class="headerlink" title="项目启动"></a>项目启动</h1><ol>
+<li>以下整个前端开发流程以node.js为基础,从官网安装<a href="http://www.nodejs.org/" target="_blank" rel="noopener">http://www.nodejs.org/</a> Node.js.</li>
+<li>安装ruby是为了实现对sass的支持，下载Rubyinstaller <a href="http://rubyinstaller.org/" target="_blank" rel="noopener">http://rubyinstaller.org/</a> 进行安装，安装完成之后输入如下命令安装sass和compass:<br><code>gem install sass</code> <code>gem install compass</code><br>成功之后可在命令行检查是否安装好：<br><code>sass –v</code> <code>compass –v</code></li>
+<li>安装grunt　　<br><code>npm install -g grunt-cli</code><br>使用方法：<a href="http://www.gruntjs.org/" target="_blank" rel="noopener">http://www.gruntjs.org/</a></li>
+<li>安装bower<br><code>npm install –g bower</code><br>使用方法：<a href="http://bower.io/" target="_blank" rel="noopener">http://bower.io/</a></li>
+<li>安装 node依赖包<br><code>npm install</code></li>
+<li>安装bower依赖包<br><code>bower install</code></li>
+<li>安装并启动mongodb<br>下载地址:<a href="https://www.mongodb.org/" target="_blank" rel="noopener">https://www.mongodb.org/</a><br><code>mongod --dbpath=d:/db</code></li>
+<li>启动项目<br><code>grunt server</code></li>
+</ol>
+<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><h2 id="主要结构"><a href="#主要结构" class="headerlink" title="主要结构"></a>主要结构</h2><p><img src="http://daysv.qiniudn.com/o_19hs22ahemggv4a17k010th9t99.jpg" alt="主要结构"></p>
+<ul>
+<li>server 文件夹为后台服务器主要目录</li>
+<li>app 文件夹为前端文件夹,由<code>express</code>作为静态资源服务器</li>
+</ul>
+<h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><h3 id="启动命令-Grunt-server"><a href="#启动命令-Grunt-server" class="headerlink" title="启动命令 Grunt server"></a>启动命令 <code>Grunt server</code></h3><p>打开浏览器<a href="http://localhost:9000" target="_blank" rel="noopener">http://localhost:9000</a></p>
+<h3 id="服务端入口"><a href="#服务端入口" class="headerlink" title="服务端入口"></a>服务端入口</h3><p>入口文件为  <code>server.js</code><br>express主文件为 <code>app/main.js</code></p>
+<h3 id="服务端结构"><a href="#服务端结构" class="headerlink" title="服务端结构"></a>服务端结构</h3><p><img src="http://daysv.qiniudn.com/o_19hs45ms11lo3mlp1j549ernj7e.jpg" alt="http://daysv.qiniudn.com/o_19hs45ms11lo3mlp1j549ernj7e.jpg"></p>
+<h3 id="server-main-js-主文件"><a href="#server-main-js-主文件" class="headerlink" title="server/main.js 主文件"></a>server/main.js 主文件</h3><p>引入功能中间件,并进行路由配置<br>其中静态文件服务器配置为 app文件夹<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.static(path.join(__dirname, <span class="string">'../app'</span>)));</span><br></pre></td></tr></table></figure></p>
+<p>注意<code>app.use()</code>引入顺序,因静态服务器引用位于路由之前,所以如果在静态服务器中存在的文件路径无法通过之后引入的路由匹配</p>
+<p>通过 <code>mongoose</code> 连接mongodb</p>
+<h3 id="server-config"><a href="#server-config" class="headerlink" title="server/config"></a>server/config</h3><p>config.js 配置文件<br>主要包含一些基本的配置信息</p>
+<h3 id="server-logs-日志文件夹"><a href="#server-logs-日志文件夹" class="headerlink" title="server/logs 日志文件夹"></a>server/logs 日志文件夹</h3><p>基本服务器日志信息</p>
+<h3 id="server-util-工具文件夹"><a href="#server-util-工具文件夹" class="headerlink" title="server/util 工具文件夹"></a>server/util 工具文件夹</h3><ul>
+<li>httpProxy.js http请求简单实现，负责连接远程服务器获取数据</li>
+<li>logger.js 日志处理</li>
+<li>mongoModal.js mongoose model 建立</li>
+<li>response.js 对<code>res</code>方法进行封装,使得在使用<code>res</code>时设置表头<code>&#39;Content-Type&#39;, &#39;application/json; charset=UTF-8&#39;</code>,并输出日志</li>
+</ul>
+<h3 id="server-controller-路由与控制器"><a href="#server-controller-路由与控制器" class="headerlink" title="server/controller 路由与控制器"></a>server/controller 路由与控制器</h3><p>router 路由文件夹,配置接口地址<br>manager 控制器,主要请求远程服务器数据并传输至前端</p>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><h3 id="客户端结构"><a href="#客户端结构" class="headerlink" title="客户端结构"></a>客户端结构</h3><p><img src="http://daysv.qiniudn.com/o_19hsjtcae7sn1qf5rc4poh3bf9.jpg" alt="http://daysv.qiniudn.com/o_19hsjtcae7sn1qf5rc4poh3bf9.jpg"><br>scripts文件夹中,<code>common</code> <code>register</code> <code>routers</code> <code>config</code> <code>custom</code> <code>system</code> 为公用组件,以用户模块为分类载体,将各模块的<code>服务</code> <code>指令</code> <code>过滤器</code> <code>路由器</code> <code>控制器</code> 统一分类</p>
+<h3 id="app-index-html"><a href="#app-index-html" class="headerlink" title="app/index.html"></a>app/index.html</h3><p>主页面引入require.js进行依赖注入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script data-main=<span class="string">"scripts/main"</span> src=<span class="string">"components/requirejs/require.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>其中<code>data-main=&quot;scripts/main&quot;</code>表示JS入口文件为<code>app/script/main.js</code><br>angular-ui-router 根据前端路由事件渲染 ui-view 中的内容</p>
+<h3 id="app-script-main-js"><a href="#app-script-main-js" class="headerlink" title="app/script/main.js"></a>app/script/main.js</h3><p>require.js 配置文件</p>
+<ul>
+<li>baseUrl : 所有模块的查找根路径</li>
+<li>paths : path映射那些不直接放置于baseUrl下的模块名</li>
+<li>shim : 为那些没有使用define()来声明依赖关系、设置模块的”浏览器全局变量注入”型脚本做依赖和导出配置</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="string">'app'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">app</span>) </span>&#123;</span><br><span class="line">	app.initialize();</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Angular app started!'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>引入 app/script/app.js 并进行<code>initialize</code>初始化操作</p>
+<h3 id="app-script-app-js"><a href="#app-script-app-js" class="headerlink" title="app/script/app.js"></a>app/script/app.js</h3><p>通过require.js 的defined方法引入依赖(其他模块均以此结构构建)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">defined([</span><br><span class="line">---</span><br><span class="line">],<span class="function"><span class="keyword">function</span>(<span class="params"> --- </span>)</span>&#123;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>引入后注册angular第三方包<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'7thDataPlatformApp'</span>, [ --- ]);</span><br></pre></td></tr></table></figure></p>
+<p>通过<code>app/register</code>提供的方法按顺序注册 <code>服务</code> <code>指令</code> <code>过滤器</code> <code>路由器</code> <code>控制器</code></p>
+<h3 id="app-script-registers"><a href="#app-script-registers" class="headerlink" title="app/script/registers"></a>app/script/registers</h3><p>注册器 用于初始化注册<br>通过合并多个控制器并遍历注册<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">controllers = _.extend(controllers, --- );</span><br><span class="line"></span><br><span class="line">_.each(controllers, <span class="function"><span class="keyword">function</span>(<span class="params">controller, name</span>) </span>&#123;</span><br><span class="line">    angModule.controller(name, controller);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="app-script-routers"><a href="#app-script-routers" class="headerlink" title="app/script/routers"></a>app/script/routers</h3><p>本项目前端路由文件为angular-ui-router</p>
+<ul>
+<li>在应用程序的整个用户界面和导航中，一个状态对应于一个页面位置</li>
+<li>通过定义controller、template和view等属性，来定义指定位置的用户界面和界面行为</li>
+<li>通过嵌套的方式来解决页面中的一些重复出现的部位</li>
+<li>在route中以<code>.</code>申明继承状态</li>
+</ul>
+<p>状态被激活时，它的模板会自动插入到父状态对应的模板中包含ui-view属性的元素内部。如果是顶层的状态，那么它的父模板就是index.html。</p>
+<p>有三种方法来激活状态：</p>
+<ol>
+<li>调用$state.go()方法，这是一个高级的便利方法；</li>
+<li>点击包含ui-sref指令的链接；</li>
+<li>导航到与状态相关联的 url。</li>
+</ol>
+<h3 id="app-common-appController-js"><a href="#app-common-appController-js" class="headerlink" title="app/common/appController.js"></a>app/common/appController.js</h3><p>主控制器,本项目在路由中所有route均以<code>system</code>开头,故<code>sysyem</code>注册的控制器为全局控制器,其<code>$scope</code>可看作为全局可读变量.</p>
+<p>appController主要包含以下功能:</p>
+<ol>
+<li>初始化 全局对象Global</li>
+<li>监视<code>$scope.Global.currentState</code>变化 判断登录,删除代理商选项</li>
+<li>如进入详细板块后<code>main</code>获取当前游戏的菜单和代理商权限</li>
+</ol>
+<h3 id="app-common-directives-js"><a href="#app-common-directives-js" class="headerlink" title="app/common/directives.js"></a>app/common/directives.js</h3><p>directives.js主要包括以下功能</p>
+<ol>
+<li>highcharts 数据可视化</li>
+<li>数据表格</li>
+<li>自定义滚动条</li>
+<li>自定义节点</li>
+<li>table转csv</li>
+<li>chart转csv</li>
+<li>时间拖动筛选</li>
+</ol>
+<h3 id="app-common-utilsService-js"><a href="#app-common-utilsService-js" class="headerlink" title="app/common/utilsService.js"></a>app/common/utilsService.js</h3><p>utilsService.js 为常用工具组件,主要包括以下功能</p>
+<ol>
+<li>获取对象长度</li>
+<li>格式化数据表数据</li>
+<li>格式化图表数据</li>
+<li>翻译图表</li>
+<li>调整数据表格字段顺序</li>
+<li>浏览器滚动</li>
+<li>格式化date前before天/周/月的日期</li>
+<li>金额按千位逗号分割</li>
+<li>翻译数组</li>
+</ol>
+<h1 id="协同工作"><a href="#协同工作" class="headerlink" title="协同工作"></a>协同工作</h1><h2 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h2><ol>
+<li><a href="http://alloyteam.github.io/JX/doc/specification/google-javascript.xml" target="_blank" rel="noopener">谷歌javascrpit代码风格</a></li>
+<li>Angular.js规范</li>
+</ol>
+<ul>
+<li>不要直接操作DOM。</li>
+<li>View中包含尽量少的逻辑。</li>
+<li>在controller和service中不能出现html的DOM和CSS代码。</li>
+<li>controller中公用的逻辑推向service（factory，value，config)，采用IOC的注入，提高代码的重用度，修改的单一点，开闭原则。</li>
+<li>controller应该只包含业务逻辑，对于数据模型的格式化过滤尽量交给angular框架filter等处理。</li>
+<li>对controller之间如果不是强依赖，只是弱引用则最好用事件$emit,$on,$broadcast。</li>
+<li>不要在应用中使用全局定义的控制器。</li>
+<li>必须完整声明依赖。</li>
+<li>需要使用jquery插件时，将jquery插件封装成dirctive。</li>
+</ul>
+<ol>
+<li>命名规范</li>
+</ol>
+<ul>
+<li>一般情况下采用驼峰模式</li>
+<li>定义controller，directive，filter，service时候应保证与模块名有一定的关联性，在各处引入时所取的变量的命名含义相同,如:</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">define([</span><br><span class="line">	<span class="string">'underscore'</span>,</span><br><span class="line">	<span class="string">'routers/routers'</span>,</span><br><span class="line">	<span class="string">'common/appControllers'</span>,</span><br><span class="line">	<span class="string">'worldMap/controllers'</span></span><br><span class="line">], <span class="function"><span class="keyword">function</span>(<span class="params">_, routers, ac, wc</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> controllers = &#123;&#125;;</span><br><span class="line">	controllers = _.extend(controllers, ac, wc);</span><br></pre></td></tr></table></figure>
+<h2 id="模块编写"><a href="#模块编写" class="headerlink" title="模块编写"></a>模块编写</h2><p>只在自己负责的模块内进行代码代码编写,不更改共用组件中的代码</p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+    <!-- 使用 DISQUS -->
+    <div id="disqus-comment">
+        <div id="disqus_thread"></div>
+<script>
+    $('html').ready(function() {
+        setTimeout(function() {
+            var disqus_config = function () {
+                this.page.url = 'http://blog.daysv.com/2015/04/02/数据分析平台心得/index.html';  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//daysv.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        },1500);
+    });
+</script>
+
+    </div>
+    <style>
+        #disqus-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2015/05/04/在Angular.js中解除$scope.$on()事件绑定/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2015/01/01/口琴阁/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/user.png" alt="Sang's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        days_v@qq.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:days_v@qq.com" target="_blank" title="Email Me">
+                        <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    <li id="sidebar-first-li">
+        <a href="/" target="_self">
+            <i class="material-icons sidebar-material-icons">home</i>
+            主页
+        </a>
+    </li>
+
+    <!-- I'm Feeling Lucky -->
+    <!--
+    <li class="dropdown">
+        <a href="" target="_self">
+            <i class="material-icons sidebar-material-icons">explore</i>
+             sidebar.imlucky
+        </a>
+    </li>
+    -->
+
+    <!-- Archives  -->
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            <i class="material-icons sidebar-material-icons">inbox</i>
+             归档
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+            <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/01/">一月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/11/">十一月 2015<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/10/">十月 2015<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/08/">八月 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/05/">五月 2015<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/01/">一月 2015<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2014/12/">十二月 2014<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2014/08/">八月 2014<span class="sidebar_archives-count">7</span></a>
+        </ul>
+    </li>
+
+    <!-- Categories  -->
+    
+
+    <!-- Divider -->
+    <li class="divider"></li>
+
+
+    <!-- Pages  -->
+  	
+        <li>
+            <a href="function link() { [native code] }" title="Github">
+                
+                Github
+            </a>
+        </li>
+  	
+
+    <!-- Article Numebr  -->
+    <li>
+        <a href="/archives">
+            文章总数
+            <span class="sidebar-badge">29</span>
+        </a>
+    </li>
+</ul>
+
+
+        <!-- Sidebar Divider -->
+        <div class="sidebar-divider"></div>
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Theme Material -->
+<a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+        主题 - Material
+        <span class="sidebar-badge badge-circle">i</span>
+    </div>
+</a>
+
+<!-- Help & Support -->
+<!--
+<a href="mailto:hiviosey@gmail.com" class="sidebar-footer-text-a">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+    sidebar.help
+    <span class="mdl-button__ripple-container">
+      <span class="mdl-ripple"></span>
+    </span>
+  </div>
+</a>
+-->
+
+<!-- Feedback -->
+<!--
+<a href="https://github.com/viosey/hexo-theme-material/issues" target="_blank" class="sidebar-footer-text-a">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+         sidebar.feedback
+                    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+</a>
+-->
+
+<!-- Abount Theme -->
+<!--
+<a href="https://blog.viosey.com/index.php/Material.html" target="_blank" class="sidebar-footer-text-a">
+    <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+         sidebar.about_theme
+        <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></div>
+</a>-->
+
+    </div>
+
+    <!-- Sidebar Sponsor -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="https://www.weibo.com/315336507" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.png);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/daysv" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.png);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;
+            <script type="text/javascript">
+                var fd = new Date();
+                document.write(fd.getFullYear());
+            </script>
+            &nbsp;Sang's Blog
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+<script src="/js/highlight.min.js"></script>
+<script src="/js/js.min.js"></script>
+<script src="/js/nprogress.js"></script>
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+
+    $('#nprogress .bar').css({
+        'background': '#FF4081'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #FF4081, 0 0 15px #FF4081'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#FF4081',
+        'border-left-color': '#FF4081'
+    });
+
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    <script src="/js/smoothscroll.js"></script>
+
+
+
+
+
+
+
+
+
+    <!-- 使用 DISQUS js 代码 -->
+    <script id="dsq-count-scr" src="//daysv.disqus.com/count.js" async></script>
+
+
+
+<!-- Swiftye -->
+
+
+<!-- Local Search-->
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+
+                </main>
+            </div>
+        </body>
+    
+</html>

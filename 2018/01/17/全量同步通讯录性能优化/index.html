@@ -390,7 +390,7 @@
 <li>由于使用新建数据库的方式, 可以在建表初期不创建主键以及索引, 并且在批量插入前使用 <code>PRAGMA synchronous = OFF</code> 关闭同步, 并在批量插入完成后创建<code>UNIQUE INDEX</code>并使用<code>PRAGMA synchronous = NORMAL</code>. 一些sqlite的相关参数也可以根据此方法在批量插入前进行设置. 在 sqlite 中 unique index 和 primary key 可以算是等效的, 详见 <a href="http://www.sqlite.org/lang_createtable.html" target="_blank" rel="noopener">http://www.sqlite.org/lang_createtable.html</a></li>
 <li>传输格式上PC端使用json格式, 而移动端使用的是pb格式. 经对比, gzip压缩后的json格式大小与pb格式相差无几, json序列化耗时较pb快, 在内网环境下无疑灵活的json更合适. 可惜的是极致的优化需要服务端配合, 返回的json数据结构还有优化空间</li>
 </ol>
-<p>经不断的优化在我这台开发小破机下全量同步通讯录耗时由最初的300+秒现在只需18秒</p>
+<p>经不断的优化在我这台开发小破机下全量同步通讯录耗时由最初的<em>300+</em>秒现在只需<em>18</em>秒 </p>
 
     
 

@@ -2,14 +2,14 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://blog.daysv.com/tags/hexo/</loc>
+        <loc>http://blog.daysv.com/tags/sqlcipher-node-webkit-sqlite3-%E5%8A%A0%E5%AF%86/</loc>
         <lastmod>2018-01-17T08:25:27.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://blog.daysv.com/tags/sqlcipher-node-webkit-sqlite3-%E5%8A%A0%E5%AF%86/</loc>
+        <loc>http://blog.daysv.com/tags/hexo/</loc>
         <lastmod>2018-01-17T08:25:27.253Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -100,14 +100,14 @@
     </url>
 
     <url>
-        <loc>http://blog.daysv.com/tags/javascript/</loc>
+        <loc>http://blog.daysv.com/tags/jQuery-js/</loc>
         <lastmod>2018-01-17T08:25:27.258Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://blog.daysv.com/tags/jQuery-js/</loc>
+        <loc>http://blog.daysv.com/tags/javascript/</loc>
         <lastmod>2018-01-17T08:25:27.258Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

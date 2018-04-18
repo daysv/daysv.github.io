@@ -107,13 +107,6 @@
     </url>
 
     <url>
-        <loc>http://blog.daysv.com/tags/javascript/</loc>
-        <lastmod>2018-01-17T08:25:27.258Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://blog.daysv.com/tags/angular-js/</loc>
         <lastmod>2018-01-17T08:25:27.259Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -135,14 +128,14 @@
     </url>
 
     <url>
-        <loc>http://blog.daysv.com/tags/cloud/</loc>
+        <loc>http://blog.daysv.com/tags/io-js/</loc>
         <lastmod>2018-01-17T08:25:27.260Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://blog.daysv.com/tags/io-js/</loc>
+        <loc>http://blog.daysv.com/tags/cloud/</loc>
         <lastmod>2018-01-17T08:25:27.260Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -165,6 +158,13 @@
     <url>
         <loc>http://blog.daysv.com/tags/nw-js/</loc>
         <lastmod>2018-01-17T09:51:07.361Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blog.daysv.com/tags/javascript/</loc>
+        <lastmod>2018-04-18T07:08:31.009Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

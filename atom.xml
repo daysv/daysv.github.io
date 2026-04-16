@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://mysite.com/atom.xml</id>
+  <title type="text">My simple blog</title>
+  <generator uri="https://github.com/xhtmlboi/yocaml" version="2">YOCaml</generator>
+  <updated>2026-04-16T00:00:00Z</updated>
+  <author>
+    <name>The YOCaml community group</name>
+  </author>
+  <link href="https://yocaml.example"/>
+  <link href="http://mysite.com/atom.xml" rel="self"/>
+  <entry>
+    <id>https://yocaml.example/articles/hello-world.html</id>
+    <title type="text">Hello World</title>
+    <updated>2026-04-16T00:00:00Z</updated>
+    <summary type="text">The world is truly beautiful.</summary>
+    <link href="https://yocaml.example/articles/hello-world.html" rel="alternate" title="Hello World"/>
+    <category term="https://picsum.photos/seed/sahara/800/600"/>
+    <category term="address"/>
+  </entry>
+</feed>

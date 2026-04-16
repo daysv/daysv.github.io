@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My simple blog</title>
+    <link>https://yocaml.example</link>
+    <description><![CDATA[My personnal simple blog written using YOCaml]]></description>
+    <atom:link href="http://mysite.com/rss2.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Thu, 16 Apr 2026 00:00:00 GMT</lastBuildDate>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    <generator>YOCaml</generator>
+    <item>
+      <title>Hello World</title>
+      <link>https://yocaml.example/articles/hello-world.html</link>
+      <description><![CDATA[The world is truly beautiful.]]></description>
+      <guid isPermaLink="true">https://yocaml.example/articles/hello-world.html</guid>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

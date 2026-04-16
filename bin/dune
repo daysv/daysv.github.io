@@ -1,0 +1,13 @@
+(executable
+ (name main)
+ (public_name yocaml_blog)
+ (modules main simple_blog)
+ (libraries
+  yocaml
+  yocaml_yaml
+  yocaml_omd
+  yocaml_unix
+  yocaml_jingoo
+  yocaml_eio
+  yocaml_syndication
+  yocaml_runtime))

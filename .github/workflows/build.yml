@@ -1,0 +1,37 @@
+name: Deploy Website
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install OCaml
+        uses: ocaml/setup-ocaml@v3
+        with:
+          ocaml-compiler: 5.4.0
+
+      - name: Install dependencies
+        run: |
+          opam install . --deps-only --with-test
+          opam install dune
+
+      - name: Build
+        run: opam exec -- dune build
+
+      - name: Generate site
+        run: dune exec bin/main.exe -- build
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_build/_www

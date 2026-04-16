@@ -1,0 +1,17 @@
+<article>
+  <header class="post-header container">
+    <span class="category-label">{{tags[1]}}</span>
+    <h1 class="post-title">{{title}}</h1>
+    <div class="hero-meta">
+      <div class="meta-item">{{ date.year }}-{{ date.month }}</div>
+    </div>
+  </header>
+
+  <div class="post-image">
+    <img src="{{tags[0]}}" alt="Kyoto Morning" style="width: 100%; border-radius: 4px;">
+  </div>
+
+  <div class="post-content">
+    {%- autoescape false -%} {{ yocaml_body }} {%- endautoescape -%}
+  </div>
+</article>

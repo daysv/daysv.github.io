@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <!-- Display title (if it exists) -->
+  <title>
+    {%- if has_page_title -%} - {{ page_title }}
+    {%-endif -%}
+  </title>
+  <!-- We iterate over the metatags calculated to display them -->
+  {%- for m in meta-%}
+  <meta name="{{m.name}}" content="{{m.content}}" />
+  {%- endfor -%}
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- We use Google font to load the typography, which is a bit sad,
+         but it avoids making the repo code too long for an example. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- Specific CSS stylesheets -->
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navigation">
+    <div class="container">
+      <div class="nav-left">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">
+          <svg class="icon" viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </label>
+        <div class="logo"></div>
+
+        <div class="mobile-menu">
+          <a href="/index.html">Home</a>
+          <a href="/stories.html">Stories</a>
+          <a href="/about.html">About</a>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/stories.html">Stories</a>
+        <a href="/about.html">About</a>
+      </div>
+
+      <!-- <div class="nav-right">
+        <a href="index.html" class="lang-toggle">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          English
+        </a>
+      </div> -->
+    </div>
+  </nav>
+
+  <main>
+    {%- autoescape false -%} {{ yocaml_body }} {%- endautoescape -%}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">
+        <h2></h2>
+        <p>© 2026 All rights reserved.</p>
+      </div>
+
+      <div class="social-links">
+        <a href="mailto:days_v@qq.com"><svg class="icon" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg></a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!-- Gallery Header -->
+<section class="page-header container">
+  <h1>All Stories</h1>
+  <p>A collection of all travel stories and photographic memories.</p>
+</section>
+
+<!-- Articles Grid -->
+<section class="section container">
+  <div class="grid">
+    {% for article in articles %}
+    <article class="card" onclick="location.href = '{{ article.url }}'">
+      <div class="card-img-wrapper">
+        <img src="{{ article.tags[0] }}" alt="{{ article.tags[1] }}" class="card-img" referrerPolicy="no-referrer">
+      </div>
+      <div class="card-meta">
+        <span>{{ article.date.year }}-{{ article.date.month }}</span>
+        {% if article.has_address %}
+        <span class="dot"></span>
+        <span>{{ article.address }}</span>
+        {% endif %}
+      </div>
+      <h4 class="card-title">{{ article.title }}</h4>
+      {% if article.has_synopsis %}
+      <p class="card-excerpt">{{ article.synopsis }}</p>
+      {% endif %}
+      <div class="read-more">
+        Read More
+        <svg class="icon icon-xs" viewBox="0 0 24 24">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination -->
+  {% if pagination.total_pages > 1 %}
+  <nav class="pagination" aria-label="Pagination">
+    <div class="pagination-links">
+      <div class="pagination-button">
+        {% if pagination.current_page > 1 %}
+        <a href="{{ pagination.prev_url }}" class="pagination-prev" aria-label="Previous page">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          Previous
+        </a>
+        {% endif %}
+      </div>
+
+      <div class="pagination-numbers">
+        {% for page in pagination.pages %}
+        {% if page.current %}
+        <span class="pagination-current" aria-current="page">{{ page.number }}</span>
+        {% else %}
+        <a href="{{ page.url }}" class="pagination-link">{{ page.number }}</a>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="pagination-button">
+        {% if pagination.current_page < pagination.total_pages %} <a href="{{ pagination.next_url }}"
+          class="pagination-next" aria-label="Next page">
+          Next
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+          </a>
+          {% endif %}
+      </div>
+    </div>
+
+    <div class="pagination-info">
+      Page {{ pagination.current_page }} of {{ pagination.total_pages }}
+    </div>
+  </nav>
+  {% endif %}
+</section>

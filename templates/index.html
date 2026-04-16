@@ -1,0 +1,82 @@
+<!-- Hero Section -->
+{%- for article in articles -%}
+{% if loop.index0 == 0 %} <section class="hero" onclick="location.href = '{{article.url}}'">
+  <img src="{{ article.tags[0] }}" alt="{{ article.tags[1] }}" class="hero-img" referrerPolicy="no-referrer">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <span class="category-label">Featured Story</span>
+      <h2 class="hero-title">{{ article.title }}</h2>
+      <p class="hero-excerpt">{{ article.synopsis }}</p>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {{ article.date.year }}-{{ article.date.month }}
+        </div>
+        {%- if article.has_address -%}
+        <div class="meta-item">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          {{ article.address }}
+        </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+{%- endfor -%}
+
+<!-- Recent Stories Grid -->
+<section id="stories" class="section container">
+  <div class="section-header">
+    <div class="section-title">
+      <h3>Recent Stories</h3>
+      <p>Travel diaries & photographic memories from around the world.</p>
+    </div>
+    <a href="stories.html" class="view-all">
+      View All
+      <svg class="icon icon-sm" viewBox="0 0 24 24">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="grid">
+    <!-- Post 1 -->
+    {%- for article in articles -%}
+    {% if loop.index0 >= 1 && loop.index0 <= 4 %} <article class="card" onclick="location.href = '{{article.url}}'">
+      <div class="card-img-wrapper">
+        <img src="{{ article.tags[0] }}" alt="{{ article.tags[1] }}" class="card-img" referrerPolicy="no-referrer">
+      </div>
+      <div class="card-meta">
+        <span>{{ article.date.year }}-{{ article.date.month }}</span>
+        {% if article.has_address %}
+        <span class="dot"></span>
+        <span>{{ article.address }}</span>
+        {% endif %}
+      </div>
+      <h4 class="card-title">{{ article.title }}</h4>
+      {%- if article.has_synopsis -%}
+      <p class="card-excerpt">{{ article.synopsis }}</p>
+      {%- endif -%}
+      <div class="read-more">
+        Read More
+        <svg class="icon icon-xs" viewBox="0 0 24 24">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </div>
+      </article>
+      {% endif %}
+      {%- endfor -%}
+  </div>
+</section>

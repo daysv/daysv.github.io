@@ -81,7 +81,6 @@ img {
 .container {
     max-width: var(--content-max);
     margin: 0 auto;
-    padding: 0 1.5rem;
 }
 
 /* Navigation */
@@ -290,7 +289,7 @@ nav .container {
 
 /* Grid Section */
 .section {
-    padding: 6rem 0;
+    padding: 2rem 0;
 }
 
 .section-header {
@@ -716,4 +715,8 @@ footer .container {
     text-align: center;
     color: var(--muted);
     font-size: 0.875rem;
+}
+
+.page-header {
+    margin-top: 2rem;
 }

@@ -45,6 +45,6 @@
   (mirage-crypto-rng
    (>= 1.2.0))
   (yocaml
-   (= :version))
+   (>= 3.0.0))
   (yocaml_runtime
-   (= :version))))
+   (>= 3.0.0))))

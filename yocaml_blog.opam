@@ -19,8 +19,8 @@ depends: [
   "git-net" {>= "0.2.0"}
   "mirage-clock" {>= "4.2.0"}
   "mirage-crypto-rng" {>= "1.2.0"}
-  "yocaml" {= version}
-  "yocaml_runtime" {= version}
+  "yocaml" {>= "3.0.0"}
+  "yocaml_runtime" {>= "3.0.0"}
   "odoc" {with-doc}
 ]
 build: [

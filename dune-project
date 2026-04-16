@@ -47,4 +47,16 @@
   (yocaml
    (>= 3.0.0))
   (yocaml_runtime
+   (>= 3.0.0))
+  (yocaml_yaml
+   (>= 3.0.0))
+  (yocaml_omd
+   (>= 3.0.0))
+  (yocaml_unix
+   (>= 3.0.0))
+  (yocaml_jingoo
+   (>= 3.0.0))
+  (yocaml_eio
+   (>= 3.0.0))
+  (yocaml_syndication
    (>= 3.0.0))))

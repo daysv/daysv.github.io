@@ -2,7 +2,7 @@
 
 (name yocaml_blog)
 
-(version dev)
+(version 0.0.1)
 
 (generate_opam_files true)
 

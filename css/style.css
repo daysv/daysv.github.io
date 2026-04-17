@@ -184,12 +184,13 @@ nav .container {
 
 .mobile-menu {
     position: fixed;
-    inset: 0;
-    background-color: var(--bg);
+    top: 5rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 90;
-    padding-top: 6rem;
-    padding-left: 1.5rem;
     display: none;
+
 }
 
 #menu-toggle:checked~.mobile-menu {
@@ -197,11 +198,14 @@ nav .container {
 }
 
 .mobile-menu a {
+    padding: 0 2rem;
     display: block;
     font-family: var(--font-serif);
     font-size: 2rem;
     font-style: italic;
-    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    background-color: rgba(252, 250, 247, 0.8);
+    backdrop-filter: blur(10px);
 }
 
 /* Hero Section */

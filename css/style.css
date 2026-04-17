@@ -721,6 +721,6 @@ footer .container {
     font-size: 0.875rem;
 }
 
-.page-header {
-    margin-top: 2rem;
+main {
+    padding: 1.5rem;
 }
